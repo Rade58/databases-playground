@@ -22,10 +22,12 @@ pets
 
 ```zsh
 {
-        "_id" : ObjectId("60bd04a70d21879dbcbd52b6"),
+        "_id" : ObjectId("60bd20f3e6e758fb3b29d46e"),
         "name" : "Stavros",
         "type" : "parot",
         "breed" : "ara",
         "age" : 8
 }
 ```
+
+DAKLE JA SAM ZADO QUERY DA UZMEM BILO KOJI DOKUMENT, A DAT MI JE ONAJ JEDINI DOKUMENT, KOJEG SAM STORE-OVAO
