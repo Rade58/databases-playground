@@ -57,3 +57,53 @@ switched to db adoption
 ## KADA GOVORIMO O KOLEKCIJA, MOZEMO RECI DA SE KOLEKCIJA SASTOJI OD DOKUMENATA
 
 ALI DOKUMENTE, NEKI NAZIVAJU I `RECORDS`
+
+# SADA CU U DATBASE-U `adoption`, DODATI PAR DOKUMNATA, U KOLEKCIJU `pets`
+
+DAKLE U PITANJU JE JAVASCRIPT
+
+- `db.pets.insertOne({name: "Stavros", type: "parot", breed: "ara", age: "8"})`
+
+```zsh
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("60bd04a70d21879dbcbd52b6")
+}
+```
+
+MONGO IMA INTERNAL ID SYSTEM, KAO STO VIDIS BLOB JE AUTOMATSKI ZADAT
+
+# SADA CU DA VIDIM KOLIKO DOKUMENATA IMAM U `pets` KOLEKCIJI
+
+ALI A VIDIM SADA KOJE DATBASE-OVE IMAM
+
+- `show dbs`
+
+```zsh
+admin     0.000GB
+adoption  0.000GB
+config    0.000GB
+local     0.000GB
+```
+
+PA DA VIDIM KOJE KOLEKCIJE IMAM U adoption DATABASE-U
+
+- `show collections`
+
+```zsh
+pets
+```
+
+E SADA DA VIDIM KOLIKO RECORD-A, ODNOSNO DOKUMENATA IMA
+
+- `db.pets.count()`
+
+```zsh
+1
+```
+
+# HELP
+
+- `db.<ime kolekcije>.help()`
+
+VIDECES KOJE SVE QFUNKCIJE MOZES DA RUNN-UJES NA KOLEKCIJI
