@@ -111,3 +111,26 @@ VIDECES KOJE SVE QFUNKCIJE MOZES DA RUNN-UJES NA KOLEKCIJI
 A AKO ZELIS DA VIDS STA MOZES DA IZVRSAVAS NA SAMOM DATBASE-U, KUCAS
 
 - `db.help()`
+
+EVO NAPRIMER DA VIDIM STATS, ZA MOJ DATBASE
+
+- `db.stats()`
+
+```zsh
+{
+        "db" : "adoption",
+        "collections" : 1,
+        "views" : 0,
+        "objects" : 1,
+        "avgObjSize" : 84,
+        "dataSize" : 84,
+        "storageSize" : 20480,
+        "indexes" : 1,
+        "indexSize" : 20480,
+        "totalSize" : 40960,
+        "scaleFactor" : 1,
+        "fsUsedSize" : 725873471488,
+        "fsTotalSize" : 983427170304,
+        "ok" : 1
+}
+```
