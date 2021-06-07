@@ -59,3 +59,7 @@ KAO STO MOZES VIDETI IZ OUTPUTA, OVO SI URADIO ZA 2500 DOKUMENATA
 ```zsh
 { "acknowledged" : true, "matchedCount" : 2500, "modifiedCount" : 2500 }
 ```
+
+# EVO TI LINK I ZA DRUGE UPDATING OPERATORE, JER IH IMA MNOGO
+
+[UPDATING OPERATORS](https://docs.mongodb.com/manual/reference/operator/update/#id1)
