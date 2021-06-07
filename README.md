@@ -78,3 +78,7 @@ I NAJBROJNIJA GRUPA JE ONIH PASA KOJI SU STARI OD 3 DO 9 GODINA
 { "_id" : 9, "count" : 555 }
 { "_id" : 0, "count" : 278 }
 ```
+
+# KAO STO SI VIDEO OVO VEC ULAZI U "DATA SCIENCY" STUFF
+
+[POSTOJI MNOGO STAGE-OVA, KOJE MOZES VIDETI OVDE](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/)
