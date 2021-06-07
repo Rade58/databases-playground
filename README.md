@@ -3,3 +3,6 @@
 SVI [CODE SAMPLES SU OVDE, U OVOM GITHUB REPO-U](https://github.com/btholt/db-samples)
 
 - `mkdir mongodb`
+
+VIDECES I SAM STA IMA U TOM FOLDERU
+
