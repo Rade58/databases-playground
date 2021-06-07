@@ -1,20 +1,23 @@
-# DELETING DOCUMENTS
+# POSTOJI I SET METODA `findOneAnd<Delete,Update, Replace>`
 
-KORISTE SE `delete`*, `deleteOne` I `deleteMany`
+U SUSTINI RADE ISTO KAO STO RADE I `updateOne` `deleteOne` `replaceOne`
 
-***
+UKLONICU JEDAN
 
-USAGE OF `delete` JE DISCOURAGED
-
-***
-
-MOGU ODMAH DA POKUSAM DA UPOTREBIM OVE METODE
-
-- `db.pets.deleteMany({name: "Stavros"})`
+- `db.pets.findOneAndDelete({type: "reptile", name: "Fido"})`
 
 ```zsh
 { "acknowledged" : true, "deletedCount" : 1 }
+{
+        "_id" : ObjectId("60be200afca169101def4d4a"),
+        "name" : "Fido",
+        "type" : "reptile",
+        "age" : 2,
+        "breed" : "Tabby",
+        "index" : 19
+}
 ```
 
+ZA RAZLIKU OD `deleteOne`, GORNJA METODA RETURN-UJE DELETED DOCUMENT
 
-
+DAKLE DOCUMENT JE DAT PRE UPDATINGA, REPLACEMENTA-A, ILI DELETION-A
