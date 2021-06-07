@@ -25,4 +25,25 @@ ISTO TAKO OVO SI SMEO SAMO DA URADIS JDNOM, **MOZS IMATI SAMO JEDAN TEXT SEARCH 
 
 - `db.pets.find({$text: {$search: "Havanese Luna dog"}})`
 
-I OVO JE NASLO MNOSTVO DOKUMENATA
+I OVO JE NASLO MNOSTVO DOKUMENATA, KOJI ZADOVOLJAVAJU TEXT SERCH
+
+ALI NISTA NIJE SORTED
+
+# DA BI SORT-OVALI MORAMO KORISTITI `sort` METODU, SA `score` PARAMETROM, ALI MORAMO KORISTI POSEBAN OPERATOR, KAO STO JE `$meta`
+
+- `db.pets.find({$text: {$search: "Havanese Luna dog"}}).sort({score: {$meta: "textScore"}})`
+
+```zsh
+{ "_id" : ObjectId("60be58108696f2886abf2a1d"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 9828 }
+{ "_id" : ObjectId("60be58108696f2886abf1571"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 4536 }
+{ "_id" : ObjectId("60be58108696f2886abf2729"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 9072 }
+{ "_id" : ObjectId("60be58108696f2886abf07a9"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 1008 }
+{ "_id" : ObjectId("60be58108696f2886abf1d51"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 6552 }
+{ "_id" : ObjectId("60be58108696f2886abf1e4d"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 6804 }
+{ "_id" : ObjectId("60be58108696f2886abf1181"), "name" : "Luna", "type" : "dog", "age" : 1, "breed" : "Havanese", "index" : 3528 }
+// ...
+// ...
+// ...
+```
+
+ZNATNO BOLJI REZULTAT
