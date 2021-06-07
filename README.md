@@ -211,3 +211,28 @@ A IMAS I OVO: "docsExamined" : 1110
 STO ZNACI DA JE EXAMINED ZNATNO MANJE
 
 TOLIKI BROJ I PET-OVA IMA name: "Fido"
+
+# DA PROVERIMO KOJ ISU FIELD-OVI INDEXED
+
+- `db.pets.getIndexes()`
+
+KAO STO VIDIS _id JE UVEK INDEXED; A MI SMO MALOCAS OMOGUCILI INDEXES ZA name FIELD
+
+```zsh
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "name" : 1
+                },
+                "name" : "name_1"
+        }
+]
+```
