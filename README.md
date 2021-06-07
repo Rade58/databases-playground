@@ -70,3 +70,41 @@ KAO STO VIDIS _id NIJE INCLUDED, JER SAM U PROJECTION-U PODESIO ZERO ZA _id
 
 # UMESTO PODESAVNAJ 0 I 1, MOZE SE KORISTITI O true I false
 
+# ALI AKO PODESIS ODREDJENE STVARI NA flase, BICE INCLUDED SVE OSTALE STVARI, OSIM ONIH KOJE SI PROJECT-OVAO SA false
+
+- `db.pets.find({}, {_id: false}).limit(4).toArray()`
+
+U RECORDSIMA IMAS SVE OSIM _id FIELD-A
+
+```zsh
+[
+        {
+                "name" : "Luna",
+                "type" : "dog",
+                "age" : 1,
+                "breed" : "Havanese",
+                "index" : 0
+        },
+        {
+                "name" : "Fido",
+                "type" : "cat",
+                "age" : 2,
+                "breed" : "Bichon Frise",
+                "index" : 1
+        },
+        {
+                "name" : "Fluffy",
+                "type" : "bird",
+                "age" : 3,
+                "breed" : "Beagle",
+                "index" : 2
+        },
+        {
+                "name" : "Carina",
+                "type" : "reptile",
+                "age" : 4,
+                "breed" : "Cockatoo",
+                "index" : 3
+        }
+]
+```
