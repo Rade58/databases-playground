@@ -6,4 +6,23 @@ ODNOSNO AKO NA PRIMER NA SITE-U IMAS NEKI FREE FORM GDE KORISNIK MOZE TRAZITI PR
 
 **MI CEMO ALLOW-OVATI DA SU FIELD-OVI type, breed I age USTVARI TEXT SEARCH INDEXED**
 
-- `db.pets.createIndexes({""})`
+- `db.pets.createIndex({type: "text", name: "text", breed: "text"})`
+
+```zsh
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "ok" : 1
+}
+```
+
+OVO JE KREIRALO NOVI INDEX, KOJI CONTAIN-UJE SVE STVARI KOJE SAM DEFINISAO
+
+ISTO TAKO OVO SI SMEO SAMO DA URADIS JDNOM, **MOZS IMATI SAMO JEDAN TEXT SEARCH INDEX PER COLLECTION**
+
+# SADA MOZES DA KORISTIS `$text` I `$search`, KADA QUERY-UJES
+
+- `db.pets.find({$text: {$search: "Havanese Luna dog"}})`
+
+I OVO JE NASLO MNOSTVO DOKUMENATA
