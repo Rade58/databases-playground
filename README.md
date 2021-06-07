@@ -157,3 +157,15 @@ I DOBICES NOVIH 20
 ```zsh
 69
 ```
+
+# `limit`
+
+- `db.pets.find({type: "cat"}).limit(8)`
+
+A UZEO SAM SAMO OSAM DOKUMENATA, II SADA VISE NEMAS OPCIJU DA MOZES DA KUCAS `it`
+
+# `find` ITER-UJE, KAO STO SI VIDEO; A DA DOBIJES ACTUAL ARRAY, KORISTIO BI `toArray`
+
+- `db.pets.find({type: "cat"}).limit(8).toArray()`
+
+I OUTPUTED JE ARRAY ITEM-A
