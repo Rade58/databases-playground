@@ -39,6 +39,33 @@ ODNONO DEFINISES SAMO ONE KOJE ZELIS
 
 U DOBIJENIM DOKUMENTIMA, IMACES DVA FIELD-A, KOJA SI NAVEO, PLUS _id ,KAO STO I SAM MOZES VIDETI GORE
 
+A MOGAO SI DA ONEMOGUCIS INCLUDING `_id` ,TAKO STO BI OVO URADIO
+
+- `db.pets.find({}, {name: 1, age: 1, _id: 0}).limit(4).toArray()`
+
+```zsh
+[
+        {
+                "name" : "Luna",
+                "age" : 1
+        },
+        {
+                "name" : "Fido",
+                "age" : 2
+        },
+        {
+                "name" : "Fluffy",
+                "age" : 3
+        },
+        {
+                "name" : "Carina",
+                "age" : 4
+        }
+]
+```
+
+KAO STO VIDIS _id NIJE INCLUDED, JER SAM U PROJECTION-U PODESIO ZERO ZA _id
+
 ## OVO JE DOBRA PRAKSA, JER SE SVTUJE, DA SAMO INCLUDE-UJES ONE STVARI KOJE SU TI POTREBNE
 
 
