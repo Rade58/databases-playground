@@ -6,6 +6,10 @@ U SUSTINI TO JE JEDNA OPCIJA KOJA SE PODESAVA, KAO TRECI ARGUMENT, `updateOne` I
 
 - `db.pets.updateOne({name: "Stavros"}, { $set: {ocupation: "podcster"}}, {upsert: true})`
 
+ZNAO SAM DA NEMAMO DOKUMENT SA name FIELD-OM, KOJI IMA VREDOST "Stavros" ,ZATO SAM EXECUTE-OVAO GORNJE
+
+I KAO STO VIDIS DOKUMENT JE STVOREN
+
 ```zsh
 {
         "acknowledged" : true,
