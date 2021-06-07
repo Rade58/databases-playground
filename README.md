@@ -72,3 +72,58 @@ null
 
 # `find`
 
+UZECU VISE DOKUMENATA, JEDNE KOLEKCIJE
+
+I OVO
+
+- `db.pets.find()`
+
+A I OVO
+
+- `db.pets.find({})`
+
+CE ITERATOVATI ALL DOCUMENTS IN A COLLECTION
+
+**KAO STO VIDIS, NISAM STAVIO NIKAKAV QUERY, I ZATO DAJE NIZ SVIH DOKUMNATA DATBASE-A**
+
+# `insertMany`
+
+DAKLE METODA KOJOJ DAJEM ARRAY JAVASCRIPT DOKUMENATA, A KOJI CE BITI UNETI U KOLEKCIJU
+
+SADA CEMO DA UBACIMO MNOSTVO DOKUMENATA, U KOLEKCIJU, KAKO BI SMO IMALI DOSTUPNE MNOGE DOKUMENTE ZA QUERYING
+
+- `
+db.pets.insertMany(
+  Array.from({ length: 10000 }).map((_, index) => ({
+    name: [
+      "Luna",
+      "Fido",
+      "Fluffy",
+      "Carina",
+      "Spot",
+      "Beethoven",
+      "Baxter",
+      "Dug",
+      "Zero",
+      "Santa's Little Helper",
+      "Snoopy",
+    ][index % 9],
+    type: ["dog", "cat", "bird", "reptile"][index % 4],
+    age: (index % 18) + 1,
+    breed: [
+      "Havanese",
+      "Bichon Frise",
+      "Beagle",
+      "Cockatoo",
+      "African Gray",
+      "Tabby",
+      "Iguana",
+    ][index % 7],
+    index: index,
+  }))
+);    
+`
+
+DAKLE OVO CE UNETI 10000 DOKUMENATA U pets KOLEKCIJU, A UNOSI CE BITI RANDOMIZED
+
+DAKLE IMAM 10000 RECORDS IN MY DATABASE
