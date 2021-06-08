@@ -15,13 +15,23 @@ async function init(){
 
   // -------------------------------
 
-  app.get('/get', async (req, res) => {
+  app.get('/find', async (req, res) => {
 
     console.log(req.query)
 
-    const search = req.query.search;
+    const search = req.query.search as string;
 
-    res.send({search})
+    if(!search){
+      return res.status(400).send("search query parameter didn't provided")
+    }
+
+    const db = client.db("adoption");
+    const collection = db.collection("pets")
+
+    const pets = await collection.find({$text: {$search: search}}).sort({score: {$meta: "textScore"}}).limit(10).toArray()
+
+
+    res.json({status: "ok", pets}).end()
   })
 
 

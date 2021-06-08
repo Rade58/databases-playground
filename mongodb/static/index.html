@@ -21,7 +21,7 @@
         code.innerText = "loading";
 
         const res = await fetch(
-          "/get?search=" + encodeURIComponent(search.value)
+          "/find?search=" + encodeURIComponent(search.value)
         );
         const json = await res.json();
 
