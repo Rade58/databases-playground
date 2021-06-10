@@ -134,3 +134,15 @@ EVO NAPRIMER DA VIDIM STATS, ZA MOJ DATBASE
         "ok" : 1
 }
 ```
+
+# GASENJE CONTAINERA-A
+
+PRONADJES ID CONTAINER-A
+
+- `docker ps`
+
+MOZES DA KORISTIS docker kill ILI docker stop
+
+- `docker kill <id continer-a>` ILI `docker stop <id container-a>`
+
+[RAZLIKA IZMEDJU OVE DVE KOMANDE JE TO STO kill DOZVOLJAVA PRUNNING PROCESIMA DA SE PROPISNO ZAUSTAVE](https://superuser.com/questions/756999/whats-the-difference-between-docker-stop-and-docker-kill), STO ZA TEBE NIJE BITNO
