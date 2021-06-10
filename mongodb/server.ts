@@ -12,6 +12,7 @@ async function init(){
   await client.connect()
 
   const app = express()
+  
 
   // -------------------------------
 
@@ -33,7 +34,6 @@ async function init(){
 
     res.json({status: "ok", pets}).end()
   })
-
 
   // -------------------------------
 
