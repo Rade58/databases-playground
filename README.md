@@ -42,7 +42,7 @@ KAO ODGOVOR SI IMAO ECHOED ISTU KOMANDU, STO ZNACI DA JE USPESNO KREIRAN NOVI DA
 CREATE DATABASE
 ```
 
-# NAKON STO SMO LLREIRALI DATBASE, MOZEMO EXECUTE-OVATI COMMAND DA KORISTIMO TAJ DATABASE, I TU KORISTIMO CONNECT, A TO PISEMO OVAKO `\c`
+# NAKON STO SMO LLREIRALI DATBASE, MOZEMO EXECUTE-OVATI COMMAND DA KORISTIMO TAJ DATABASE, I TU KORISTIMO CONNECT, A TO PISEMO OVAKO `\c` ILI `\connect`
 
 - `\c message_boards`
 
@@ -60,5 +60,27 @@ VEC PISE
 message_boards=#
 ```
 
+# DATBASE ADMIN COMMANDS SE PISU SA SLASH-EM (`\`), KAO STO SI GORE I VIDEO
 
+DA VIDIS SVE DATABASE-OVE, KUCAS `/l` ILI `\list`
 
+- `/list`
+
+```zsh
+                                   List of databases
+      Name      |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges 
+  
+----------------+----------+----------+------------+------------+---------------------
+--
+ message_boards | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ postgres       | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ template0      | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres         
+ +
+                |          |          |            |            | postgres=CTc/postgre
+s
+ template1      | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres         
+ +
+                |          |          |            |            | postgres=CTc/postgre
+s
+(4 rows)
+```
