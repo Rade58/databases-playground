@@ -29,7 +29,10 @@ async function init(){
     const db = client.db("adoption");
     const collection = db.collection("pets")
 
-    const pets = await collection.find({$text: {$search: search}}).sort({score: {$meta: "textScore"}}).limit(10).toArray()
+    const pets = await collection.find({
+      $text: {$search: search}
+    }
+    ).sort({score: {$meta: "textScore"}}).limit(10).toArray()
 
 
     res.json({status: "ok", pets}).end()
