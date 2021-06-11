@@ -134,6 +134,8 @@ PROBACU DA GA NADJEM DA VIDIM DA LI JE UPDATED
 ---------+----------+----------------------+-------------+---------------------------+----------------------------
       69 | larthy1w | larthy1w@sina.com.cn | Lukas Arthy | 2021-06-11 16:49:29.84975 | 2021-05-17 14:11:16.481305
 (1 row)
+
+UPDATE 1
 ```
 
 # UPDATING MULTIPLE FIELD-OVA, DEFINISES TAKO STO TO ODVOJIS ZAREZIMA TA SETOVANJA, U `SET` KLAUZULI  
@@ -147,14 +149,21 @@ EVO SADA CU TO PROBATI
 ------------+------------
  Rade Bajic | dpuckring0
 (1 row)
+
+UPDATE 1
 ```
 
-** HAJDE SADA DA PRONADJEMO OLDEST **
+# DELETING OBAVLJS SA `DELETE`
 
-ZA POCETAK HAJDE DA DELET-UJEM EVERY DOCUMENT, KOJEM JE ONAJ JEDINI FIELLD `last_login` IMA VREDNOST NULL
+SADA CU DA UKLONIM JEDAN RECORD IS users TABLE-A
 
-PRVO CEMO IH LISTOVATI
+- `DELETE FROM users WHERE user_id=69 RETURNING *;`
 
-A SADA CU DA DELET-UJEM SVAKOG
+```zsh
+ user_id | username |        email         |  full_name  |         last_login         |         created_on         
+---------+----------+----------------------+-------------+----------------------------+----------------------------
+      69 | larthy1w | larthy1w@sina.com.cn | Lukas Arthy | 2021-06-11 16:51:56.413883 | 2021-05-17 14:11:16.481305
+(1 row)
 
-- `DELETE * FROM users WHERE last_login IS NULL;`
+DELETE 1
+```
