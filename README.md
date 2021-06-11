@@ -234,3 +234,7 @@ IZASAO SAM
 I OPET SAM USAO
 
 - `docker exec -it -u postgres test-postgres psql`
+
+I KONEKTOVAO SAM SE DO ONOG DATBASE-A KOJEG SMO NAPRVILI PRE NE MNOGO VREMENA
+
+- `\connect message_boards`
