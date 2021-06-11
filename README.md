@@ -98,3 +98,16 @@ OVIM BI TREBALI DA OBTAIN-UJEMO SVE RECORDS JEDNOG TABLE-A
 (1 row)
 
 ```
+
+# ALI TI TAKORECI MOZES DA RADIS PROJECTIONS; ODNOSNO, UMESTO DA KORISTIS WILDCARD (`*`), MOZES USTVARI DA CHERRY PICK-UJES STA TO ZELIS DA BUDE INCLUDED U RECORDSIMA KOJE OBTAIN-UJES
+
+- `SELECT email, full_name FROM users;`
+
+DOBIO BI SAMO ONO STA SI TRAZIO
+
+```zsh
+       email        | full_name  
+--------------------+------------
+ magnificet@lol.com | Rade Bajic
+(1 row)
+```
