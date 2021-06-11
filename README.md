@@ -55,3 +55,19 @@ AKO OPET ISKORISTIMO `SELECT * FROM users;` BICE LISTED OGROMAN BROJ RECORD-A, O
        8 | shenstone7 | shenstone7@networksolutions.com | Sibyl Henstone  | 2021-05-29 14:11:16.481305 | 2021-05-28 14:11:16.481305
 (8 rows)
 ```
+
+MOZEMO OVO DA PROBAMO A PROJECTION-OM
+
+- `SELECT username, email FROM users LIMIT 6;`
+
+```zsh
+  username  |          email           
+------------+--------------------------
+ dpuckring0 | dpuckring0@wikimedia.org
+ ssiviour1  | ssiviour1@ow.ly
+ gsomerled2 | gsomerled2@auda.org.au
+ wedginton3 | wedginton3@google.com
+ mshine4    | mshine4@army.mil
+ marnli5    | marnli5@google.co.uk
+(6 rows)
+```
