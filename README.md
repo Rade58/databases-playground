@@ -125,6 +125,18 @@ PROBACU DA GA NADJEM DA VIDIM DA LI JE UPDATED
 (1 row)
 ```
 
+# A DA UPDATE-UJES, I TAKODJE DOBIJES TAJ UPDATED RECORD BACK, MOZES KORISTITI `RETURNING *`, ILI `RETURNING <field1, field2 ...>`
+
+- `UPDATE users SET last_login=NOW() WHERE user_id=69 RETURNING *;`
+
+```zsh
+ user_id | username |        email         |  full_name  |        last_login         |         created_on         
+---------+----------+----------------------+-------------+---------------------------+----------------------------
+      69 | larthy1w | larthy1w@sina.com.cn | Lukas Arthy | 2021-06-11 16:49:29.84975 | 2021-05-17 14:11:16.481305
+(1 row)
+```
+
+
 ** HAJDE SADA DA PRONADJEMO OLDEST **
 
 ZA POCETAK HAJDE DA DELET-UJEM EVERY DOCUMENT, KOJEM JE ONAJ JEDINI FIELLD `last_login` IMA VREDNOST NULL
