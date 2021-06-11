@@ -87,6 +87,16 @@ A `1` PREDSTAVLJA BROJ RECORD-A KOJI JE ADDED TO THE TABLE
 
 # SADA CEMO DA READ-UJEMO FROM THE DATABASE; A MOST EASY AND BASIC WAY TO DO IT JE KORISCENJEM `SELECT * FROM`
 
-- `SELECT * FROM users`
+- `SELECT * FROM users;` (NE ZABORAVI `;`)
 
 OVIM BI TREBALI DA OBTAIN-UJEMO SVE RECORDS JEDNOG TABLE-A
+
+```zsh
+ user_id | username |       email        | full_name  | last_login |         created_o
+n         
+---------+----------+--------------------+------------+------------+------------------
+----------
+       1 | rade     | magnificet@lol.com | Rade Bajic |            | 2021-06-11 13:23:
+47.003171
+(1 row)
+```
