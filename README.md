@@ -35,3 +35,23 @@ PRVO DA VIDIMO, KOJE SVE TABLE-OVE IMAMO
 (8 rows)
 
 ```
+
+AKO OPET ISKORISTIMO `SELECT * FROM users;` BICE LISTED OGROMAN BROJ RECORD-A, ODNONO MORACEMO DA PRITISKAMO ENTER, KAKO BI PRIKAZALI SLEDECU GRUPU RECORDA I TAKO DALJE
+
+# DA GRAB-UJEMO ONOLIKO RECORD-A, KOLIKO ZELIMO, MOZEMO KORISTITI `LIMIT`
+
+- `SELECT * FROM users LIMIT 8;`
+
+```zsh
+ user_id |  username  |              email              |    full_name    |         last_login         |         created_on         
+---------+------------+---------------------------------+-----------------+----------------------------+----------------------------
+       1 | dpuckring0 | dpuckring0@wikimedia.org        | Dicky Puckring  |                            | 2021-06-04 14:11:16.481305
+       2 | ssiviour1  | ssiviour1@ow.ly                 | Suzanna Siviour | 2021-06-09 14:11:16.481305 | 2021-06-08 14:11:16.481305
+       3 | gsomerled2 | gsomerled2@auda.org.au          | Geneva Somerled |                            | 2021-06-07 14:11:16.481305
+       4 | wedginton3 | wedginton3@google.com           | Winny Edginton  | 2021-06-06 14:11:16.481305 | 2021-06-05 14:11:16.481305
+       5 | mshine4    | mshine4@army.mil                | Mitchael Shine  | 2021-06-04 14:11:16.481305 | 2021-06-03 14:11:16.481305
+       6 | marnli5    | marnli5@google.co.uk            | Magdalena Arnli | 2021-06-02 14:11:16.481305 | 2021-06-01 14:11:16.481305
+       7 | wjohnston6 | wjohnston6@omniture.com         | Wandis Johnston | 2021-05-25 14:11:16.481305 | 2021-05-30 14:11:16.481305
+       8 | shenstone7 | shenstone7@networksolutions.com | Sibyl Henstone  | 2021-05-29 14:11:16.481305 | 2021-05-28 14:11:16.481305
+(8 rows)
+```
