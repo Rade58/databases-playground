@@ -32,4 +32,17 @@ ZA MJOGE FIELD-OVE, KORISTILI SMO `VARCHAR` STO DEFINISE BUKVALNO STRING, A TO Z
 
 SA BROJEM U ZAGRADI SMO DEFINISALI LIMIT KARAKTERA, A `NOT NULL` ZNACI DA AKO ZELIS DA INSERT-UJES U POMENUTI DATBASE, DA MORAS INCLUDE-OVATI POMENUTI FIELD ;ODNONO QUERY NECE BITI ACCEPTED
 
-`UNIQUE` ZNAS I SAM STA ZNACI, A ZNAS STA I `TIME STAMP` 
+`UNIQUE` ZNAS I SAM STA ZNACI, A ZNAS STA I `TIME STAMP`
+
+**MOZEMO SADA DA POGLEDAMO LIST OF RELATIONS**
+
+- `\d`
+
+```zsh
+                List of relations
+ Schema |       Name        |   Type   |  Owner   
+--------+-------------------+----------+----------
+ public | users             | table    | postgres
+ public | users_user_id_seq | sequence | postgres
+(2 rows)
+```
