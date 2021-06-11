@@ -138,6 +138,16 @@ PROBACU DA GA NADJEM DA VIDIM DA LI JE UPDATED
 
 # UPDATING MULTIPLE FIELD-OVA, DEFINISES TAKO STO TO ODVOJIS ZAREZIMA TA SETOVANJA, U `SET` KLAUZULI  
 
+EVO SADA CU TO PROBATI
+
+- `UPDATE users SET full_name='Rade Bajic', email='rade@mail.com' WHERE user_id=1 RETURNING full_name, username;`
+
+```zsh
+ full_name  |  username  
+------------+------------
+ Rade Bajic | dpuckring0
+(1 row)
+```
 
 ** HAJDE SADA DA PRONADJEMO OLDEST **
 
