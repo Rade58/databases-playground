@@ -71,3 +71,23 @@ MOZEMO OVO DA PROBAMO A PROJECTION-OM
  marnli5    | marnli5@google.co.uk
 (6 rows)
 ```
+
+# SA `WHERE` MI MOZEMO DODATO OPISATI POSTGRES-U, KKAV TO DATA ZELIMO
+
+NA PRIMER, MOZEMO TRAZITI NEKE RECORDS, KOJI IMAJU ZAELJENU VREDNOST FIELD-A
+
+EVO OVAKO, OVDE TRAZIM SAMO RECORDS, KOJI IMAJU user_id SA VREDNOSCU `69`
+
+TU BI TREBALO DA DOBIJEM SAMO JEDAN RECORD, NARAVNO, JER JE user_id UNIQUE
+
+- `SELECT * FROM users WHERE userid=69;`
+
+I OVO SMO DOBILI:
+
+```zsh
+ user_id | username |        email         |  full_name  | last_login |         created_on         
+---------+----------+----------------------+-------------+------------+----------------------------
+      69 | larthy1w | larthy1w@sina.com.cn | Lukas Arthy |            | 2021-05-17 14:11:16.481305
+(1 row)
+```
+
