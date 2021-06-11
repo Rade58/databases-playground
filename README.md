@@ -10,7 +10,7 @@ NE KORISTIMO -it FLAGOVE, KOJE SMO KORISTILI KADA SMO CONTAINERIZOVALLI MONGODB
 
 NARAVNO -e PREDSTAVLJA ENVIROMNT VARIABLE
 
-`-rm` REMOVE-UJE LOGS KADA SE CONTAINER ZAUSTAVI SA `docker kill <containr id>` ILI `docker stop <container id>`
+`--rm` REMOVE-UJE LOGS KADA SE CONTAINER ZAUSTAVI SA `docker kill <containr id>` ILI `docker stop <container id>`
 
 **DA POKRENEMO POSTGRES COMMAND LINE CLIENT, KORISTICEMO KOMANDU `psql`**
 
@@ -60,11 +60,11 @@ VEC PISE
 message_boards=#
 ```
 
-# DATBASE ADMIN COMMANDS SE PISU SA SLASH-EM (`\`), KAO STO SI GORE I VIDEO
+# DATABASE ADMIN COMMANDS SE PISU SA SLASH-EM (`\`), KAO STO SI GORE I VIDEO
 
-**DA VIDIS SVE DATABASE-OVE, KUCAS** `/l` ILI `\list`
+**DA VIDIS SVE DATABASE-OVE, KUCAS** `\l` ILI `\list`
 
-- `/list`
+- `\list`
 
 ```zsh
                                    List of databases
@@ -226,3 +226,11 @@ ISTO MOZES DA NASTAVIS DA LISTAS PRITISKOM NA ENTER
 - `-- hello`
 
 # AKO HOCES DA IZADJES IZ POSTGRES COMMAND LINE UTILITY-JA, KUCAS `\q`
+
+- `\q`
+
+IZASAO SAM
+
+I OPET SAM USAO
+
+- `docker exec -it -u postgres test-postgres psql`
