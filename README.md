@@ -1,98 +1,35 @@
-# SELECT, LIMIT, WHERE
+# COUNT, SORT, UPDATE, DELETE
 
-U PROSLOM BRANCH-U, VEC SMO VIDELI: 
+PRVO CEMO DA UPOTREBIMO JOS NEKE STVARI U NASEM FILTERINGU REZULTTA
 
-SELECT SA WILDARD-OM: `SELECT * FROM <table>` 
+NA PRIMER UZECU 6 RECORDA, KOD KOJIH laast_login FIELD IMA VREDNOST NULL
 
-I VIDELI
-
-PROJECTION: `SELECT <field1, field2, ...> FROM <table>`
-
-[KOPIRACEMO ODAVDE](sample-postgresql.sql), EKSTREMNO VELIKI SQL QUERY KOJI CE INSERT-OVATI MNOSTVO RECORD-A INSIDE users TABLE
-
-U PITANJU JE QUERY KOJI CE DODATI OKO 6000 RECORDA
-
-ALI MI CEMO KOPIRATI CEO FILE, JER TU SU KOMANDE ZA DROPING, PA CREATING TALE-OVA, U SUSTINI RESETING SVEGA, PRE NEGO STO INSERT-UJEMO U DATBASE
-
-DOBRO, KADA SAM TO URADIO, MOGU DA EXPLOR-UJEM, KAKO SVE MOGU DA QUERY-UJEM DATABASE
-
-PRVO DA VIDIMO, KOJE SVE TABLE-OVE IMAMO
-
-- `\d`
+- `SELECT username FROM users WHERE last_login IS NULL LIMIT 6;`
 
 ```zsh
-                     List of relations
- Schema |            Name             |   Type   |  Owner   
---------+-----------------------------+----------+----------
- public | boards                      | table    | postgres
- public | boards_board_id_seq         | sequence | postgres
- public | comments                    | table    | postgres
- public | comments_comment_id_seq     | sequence | postgres
- public | rich_content                | table    | postgres
- public | rich_content_content_id_seq | sequence | postgres
- public | users                       | table    | postgres
- public | users_user_id_seq           | sequence | postgres
-(8 rows)
-
-```
-
-AKO OPET ISKORISTIMO `SELECT * FROM users;` BICE LISTED OGROMAN BROJ RECORD-A, ODNONO MORACEMO DA PRITISKAMO ENTER, KAKO BI PRIKAZALI SLEDECU GRUPU RECORDA I TAKO DALJE
-
-# DA GRAB-UJEMO ONOLIKO RECORD-A, KOLIKO ZELIMO, MOZEMO KORISTITI `LIMIT`
-
-- `SELECT * FROM users LIMIT 8;`
-
-```zsh
- user_id |  username  |              email              |    full_name    |         last_login         |         created_on         
----------+------------+---------------------------------+-----------------+----------------------------+----------------------------
-       1 | dpuckring0 | dpuckring0@wikimedia.org        | Dicky Puckring  |                            | 2021-06-04 14:11:16.481305
-       2 | ssiviour1  | ssiviour1@ow.ly                 | Suzanna Siviour | 2021-06-09 14:11:16.481305 | 2021-06-08 14:11:16.481305
-       3 | gsomerled2 | gsomerled2@auda.org.au          | Geneva Somerled |                            | 2021-06-07 14:11:16.481305
-       4 | wedginton3 | wedginton3@google.com           | Winny Edginton  | 2021-06-06 14:11:16.481305 | 2021-06-05 14:11:16.481305
-       5 | mshine4    | mshine4@army.mil                | Mitchael Shine  | 2021-06-04 14:11:16.481305 | 2021-06-03 14:11:16.481305
-       6 | marnli5    | marnli5@google.co.uk            | Magdalena Arnli | 2021-06-02 14:11:16.481305 | 2021-06-01 14:11:16.481305
-       7 | wjohnston6 | wjohnston6@omniture.com         | Wandis Johnston | 2021-05-25 14:11:16.481305 | 2021-05-30 14:11:16.481305
-       8 | shenstone7 | shenstone7@networksolutions.com | Sibyl Henstone  | 2021-05-29 14:11:16.481305 | 2021-05-28 14:11:16.481305
-(8 rows)
-```
-
-MOZEMO OVO DA PROBAMO A PROJECTION-OM
-
-- `SELECT username, email FROM users LIMIT 6;`
-
-```zsh
-  username  |          email           
-------------+--------------------------
- dpuckring0 | dpuckring0@wikimedia.org
- ssiviour1  | ssiviour1@ow.ly
- gsomerled2 | gsomerled2@auda.org.au
- wedginton3 | wedginton3@google.com
- mshine4    | mshine4@army.mil
- marnli5    | marnli5@google.co.uk
+   username   
+--------------
+ dpuckring0
+ gsomerled2
+ sfaiera
+ gsukbhansd
+ aaizikovj
+ hmaccurtaink
 (6 rows)
 ```
 
-# SA `WHERE` MI MOZEMO DODATO OPISATI POSTGRES-U, KKAV TO DATA ZELIMO
+**HAJDE SADA DA UZMEMO ISTO, ALI DODATNO DA IMAMO USLOV, ODNONO DA DODAMO DODATNU KLAUZULU, KORISCENJEM `AND`**
 
-NA PRIMER, MOZEMO TRAZITI NEKE RECORDS, KOJI IMAJU ZAELJENU VREDNOST FIELD-A
+ZELIMO DA UZMEMO SAMO USERE, KOJI IMAJU NULL VREDNOST ZA `last_login` FIELD; **ALI ZELIMO DA VREDNOST FIELDA `created_on`  NIJA TAKVA DA PREDSTAVLJA DATE, KOJI JE STARIJI OD SEST MESECI**
 
-EVO OVAKO, OVDE TRAZIM SAMO RECORDS, KOJI IMAJU user_id SA VREDNOSCU `69`
+LEPOTA JE STO MI DIREKTNO U NASIM KLAUZULAMA MOZEMO KORISTITI DATA AND MATH
 
-TU BI TREBALO DA DOBIJEM SAMO JEDAN RECORD, NARAVNO, JER JE user_id UNIQUE
 
-- `SELECT * FROM users WHERE userid=69;`
 
-I OVO SMO DOBILI:
+ZA POCETAK HAJDE DA DELET-UJEM EVERY DOCUMENT, KOJEM JE ONAJ JEDINI FIELLD `last_login` IMA VREDNOST NULL
 
-```zsh
- user_id | username |        email         |  full_name  | last_login |         created_on         
----------+----------+----------------------+-------------+------------+----------------------------
-      69 | larthy1w | larthy1w@sina.com.cn | Lukas Arthy |            | 2021-05-17 14:11:16.481305
-(1 row)
-```
+PRVO CEMO IH LISTOVATI
 
-## KADA PISEMO OVE KLAUZULE (DA ZISTA IH TAKO NAZIVAJU), MI MORAMO ISPOSTOVATI TACAN ORDER
+A SADA CU DA DELET-UJEM SVAKOG
 
-ODNOSNO MORAMO ZNATI GDE SE PISE `LIST`, A GDE SE PISE NA PRIMER `WHERRE`
-
-ALI SVE IMA SMISLA
+- `DELETE * FROM users WHERE last_login IS NULL;`
