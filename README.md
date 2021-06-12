@@ -142,3 +142,5 @@ EVO VIDIS KAKO NISAM MORAO KORISTITI DOT SINTAKSU SA `username`, BEZ OBZIRA STO 
      893 | jpowdrillos   | In hac habitasse pla
 (11 rows)
 ```
+
+username NIJE AMBIGOUS, I SVE JE BILO U REDU
