@@ -43,3 +43,38 @@ ONO STO SAM DOBIO JE ZAISTA JSON
  {"type": "poll", "options": ["blue", "red", "green", "yellow"], "question": "What is your favorite color?"}
 (1 row)
 ```
+
+KAO STO VIDIS OVDE IMAS POOL
+
+DAKLE IMAS MOGUCNOST DA OVAKO STORE-UJES, NEKI RICH CONTENT
+
+TAKVI SU I OSTALI RECORDI
+
+- `SELECT * FROM rich_content;`
+
+```zsh
+ content_id | comment_id |                                                                          content                                          
+                                
+------------+------------+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------
+          1 |         63 | {"type": "poll", "options": ["blue", "red", "green", "yellow"], "question": "What is your favorite color?"}
+          2 |        358 | {"url": "https://youtu.be/dQw4w9WgXcQ", "type": "video", "dimensions": {"width": 1920, "height": 1080}}
+          3 |        358 | {"type": "poll", "options": ["yes", "no", "oh you"], "question": "Is this your favorite video?"}
+          4 |        410 | {"url": "https://btholt.github.io/complete-intro-to-linux-and-the-cli/WORDMARK-Small.png", "type": "image", "dimensions": 
+{"width": 1084, "height": 400}}
+          5 |        485 | {"url": "https://btholt.github.io/complete-intro-to-linux-and-the-cli/HEADER.png", "type": "image", "dimensions": {"width"
+: 3301, "height": 237}}
+(5 rows)
+```
+
+KAO STO VIDIS IMA MOGUCNOST DA STORE-UJES URL VIDEO-A I DA IMAS DIMENZIJE ZA VIDEO
+
+DAKLE OVO SU SVE NEKE VRSTE RICH CONTENT-A
+
+ZA TO JE POTREBAN SCHEMALESS WAY PF EXPRESSIN, STO JE OVDE I URADJENO
+
+BEZ OVOGA JA BI MORAO DA IMAM JEDAN TYPE, KOJI DESCRIBE-UJE URL, DRUGI KOJI DESCRIBE-UJE VISINU, TRECI SIRINU VIDEO I TAKO DALJE; SHVATS POENTU, MOGAO SI SVE DA EXPRESS-UJES SA TABLE-OVIMA, ALI TO BI BILO MESSY
+
+**OVAKO SVE MOZES DA STAVIS U JEDAN TABLE I DA GA EXPRESS-UJES KAO JSON**
+
+# SIMBOLI NA KOJE SE TRBAS NAVICI SU OVE ARROWS: `->` `->>`
