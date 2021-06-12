@@ -40,6 +40,29 @@ USTVARI NEKA U PROJECTION-U BUDU SAMO comment_id I user_id; A SA `AS` I `LEFT()`
 (11 rows)
 ```
 
+ISTO TAKO, KADA QUERY-UJES BILO KOJI FIELD, TI MOZES PISATI I IME TABLE-A, NA PRIMER ZA FIELD KOJI PRIPADA RECORD-U, TI PISES `<IME TRNUTNOG TABLEA>.<NJEGOV FIELD>`, A AKO JE U PITANJU REFERENCA, TO NE SMES RADITI DOK NE INTRODUCE-UJEMO JOINS
+
+- `SELECT comments.comment_id, comments.user_id, LEFT(comment, 20) AS preview FROM comments WHERE board_id=69;`
+
+```zsh
+ comment_id | user_id |       preview        
+------------+---------+----------------------
+          6 |     721 | Curabitur gravida ni
+         23 |     320 | Quisque id justo sit
+         78 |     544 | Aenean lectus. Pelle
+        155 |     700 | Quisque porta volutp
+        243 |     219 | Phasellus in felis. 
+        297 |     408 | Cras mi pede, malesu
+        400 |     305 | Suspendisse potenti.
+        562 |     530 | Cras mi pede, malesu
+        784 |     498 | Phasellus in felis. 
+        820 |     879 | Aenean fermentum. Do
+        979 |     893 | In hac habitasse pla
+(11 rows)
+```
+
+DA SI GORE NAPISAO `users.user_id` IMAO BI ERROR
+
 ## ONOME KOJEM DISPLAY-UJES DATA VEROVATNO NIJE STALO DO TOGA DA GLEDA U user_id FIELD, VEROVATNO GA ZANIMA username, ILI fill_name RECORDA, IZ users TABLE-A; `ZATO CEMO DA DEFINISEMO JOIN`
 
 TREBA RECI NEKOLIKO STVARI O TOME STA CU PISATI KADA PISEM PROJECTION, U SLUCAJU REFERENCE, KOJA SE U MOM SLUCAJU ZOVE `user_id`
