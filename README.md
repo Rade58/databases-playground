@@ -3,3 +3,7 @@
 EVO JE JEDNA DIVNA GRAFIKA KOJA SE TICE RAZLICITIH TYPE-OVA OF JOINS
 
 ![joins](images/SQL_Joins.svg)
+
+DAKLE POSTOJI DOSTA TIPOVAA ZA JOINS, A MISMO U PROSLOM BRANCHU SAMO RADILI `INNER JOIN`
+
+VISE O JOINS-OVIMA, [PROCITAJ OVDE](https://btholt.github.io/complete-intro-to-databases/complex-sql-queries#join)
