@@ -120,4 +120,25 @@ TO ZNACI DA SMO TRAZILI `user_id` FIELD, MORALI SMO GA OVAKO NAPISATI: `users.us
 (12 rows)
 ```
 
+# ALI AKO NESTO NIJE AMBIGOUS, BEZ OBZIRA STO PRIPADA RECORDU KOJI JE REFERENCED, TI I NE MORAS KORISTITI DOT SINTAKSU
 
+EVO VIDIS KAKO NISAM MORAO KORISTITI DOT SINTAKSU SA `username`, BEZ OBZIRA STO username PRIPADA RECORDU IZ users TABELE
+
+- `SELECT users.user_id, username, LEFT(comment, 20) AS preview FROM comments INNER JOIN users ON comments.user_id = users.user_id WHERE board_id=69;`
+
+```zsh
+ user_id |   username    |       preview        
+---------+---------------+----------------------
+     219 | gde62         | Phasellus in felis. 
+     305 | cstebles8g    | Suspendisse potenti.
+     320 | mhamsson8v    | Quisque id justo sit
+     408 | rhenstridgebb | Cras mi pede, malesu
+     498 | hjumeaudt     | Phasellus in felis. 
+     530 | sdallynep     | Cras mi pede, malesu
+     544 | bdotterillf3  | Aenean lectus. Pelle
+     700 | jyakebovichjf | Quisque porta volutp
+     721 | tberreyk0     | Curabitur gravida ni
+     879 | fginnaneoe    | Aenean fermentum. Do
+     893 | jpowdrillos   | In hac habitasse pla
+(11 rows)
+```
