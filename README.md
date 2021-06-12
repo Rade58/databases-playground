@@ -44,29 +44,29 @@ USTVARI NEKA U PROJECTION-U BUDU SAMO comment_id I user_id; A SA `AS` I `LEFT()`
 
 TREBA RECI NEKOLIKO STVARI O TOME STA CU PISATI KADA PISEM PROJECTION, U SLUCAJU REFERENCE, KOJA SE U MOM SLUCAJU ZOVE `user_id`
 
-TADA CU KORISTITI `<IME TRENUTNOG TABLE-A>.<FIELD KOJI PREDSTAVLJA REFERENCU>`, PA ONADA ZELIM DA SPECIFICIRAM KOJE TO FIELD-OVE ZELIM IZ TOG RECORDA IZ DIFFERENT TABLE-A ,A TO RADIM TAKO STO PISEM `<IME DIFFERENT TABLE-A>.<ZELJENI FIELD DIFFERENT TABLE-A>`
+TADA CU SPECIFICIRATI KOJE TO FIELD-OVE ZELIM IZ TOG RECORDA IZ DIFFERENT TABLE-A ,A TO RADIM TAKO STO PISEM `<IME DIFFERENT TABLE-A>.<ZELJENI FIELD DIFFERENT TABLE-A>`
 
 A DEO KLAUZULE U KOJOJ SE VRSI JOIN, TREBA DA IDE TAKO, DA SE TU KORISTE ODREDNICE `INNER JOIN <IME DIFFERENT TABLE-A>` I `ON <USLOV O JEDNAKOSTI>`
 
-- `SELECT comment_id, comments.user_id, users.email, users.username, time, LEFT(comment, 20) AS preview FROM comments INNER JOIN users ON comments.user_id = users.user_id WHERE board_id=69;`
+- `SELECT comment_id, users.email, users.username, time, LEFT(comment, 20) AS preview FROM comments INNER JOIN users ON comments.user_id = users.user_id WHERE board_id=69;`
 
 EVO STA SAM DOBIO IN RETURN
 
 DAKLE REZULTATU CE BITI DODATI, POTPUNO NOVI FIELD-OVI `email` I `username`
 
 ```zsh
- comment_id | user_id |           email           |   username    |        time         |       preview        
-------------+---------+---------------------------+---------------+---------------------+----------------------
-        243 |     219 | gde62@sfgate.com          | gde62         | 2019-08-21 07:01:01 | Phasellus in felis. 
-        400 |     305 | cstebles8g@ovh.net        | cstebles8g    | 2020-09-02 20:04:31 | Suspendisse potenti.
-         23 |     320 | mhamsson8v@sina.com.cn    | mhamsson8v    | 2020-03-13 00:56:44 | Quisque id justo sit
-        297 |     408 | rhenstridgebb@51.la       | rhenstridgebb | 2019-07-10 10:18:50 | Cras mi pede, malesu
-        784 |     498 | hjumeaudt@yale.edu        | hjumeaudt     | 2020-05-01 00:44:03 | Phasellus in felis. 
-        562 |     530 | sdallynep@squarespace.com | sdallynep     | 2019-02-14 09:54:49 | Cras mi pede, malesu
-         78 |     544 | bdotterillf3@sun.com      | bdotterillf3  | 2018-10-20 09:35:49 | Aenean lectus. Pelle
-        155 |     700 | jyakebovichjf@state.gov   | jyakebovichjf | 2018-12-10 00:55:18 | Quisque porta volutp
-          6 |     721 | tberreyk0@adobe.com       | tberreyk0     | 2019-05-25 13:46:06 | Curabitur gravida ni
-        820 |     879 | fginnaneoe@answers.com    | fginnaneoe    | 2018-11-16 02:56:52 | Aenean fermentum. Do
-        979 |     893 | jpowdrillos@netscape.com  | jpowdrillos   | 2018-08-16 10:00:51 | In hac habitasse pla
+ comment_id |           email           |   username    |        time         |       preview        
+------------+---------------------------+---------------+---------------------+----------------------
+        243 | gde62@sfgate.com          | gde62         | 2019-08-21 07:01:01 | Phasellus in felis. 
+        400 | cstebles8g@ovh.net        | cstebles8g    | 2020-09-02 20:04:31 | Suspendisse potenti.
+         23 | mhamsson8v@sina.com.cn    | mhamsson8v    | 2020-03-13 00:56:44 | Quisque id justo sit
+        297 | rhenstridgebb@51.la       | rhenstridgebb | 2019-07-10 10:18:50 | Cras mi pede, malesu
+        784 | hjumeaudt@yale.edu        | hjumeaudt     | 2020-05-01 00:44:03 | Phasellus in felis. 
+        562 | sdallynep@squarespace.com | sdallynep     | 2019-02-14 09:54:49 | Cras mi pede, malesu
+         78 | bdotterillf3@sun.com      | bdotterillf3  | 2018-10-20 09:35:49 | Aenean lectus. Pelle
+        155 | jyakebovichjf@state.gov   | jyakebovichjf | 2018-12-10 00:55:18 | Quisque porta volutp
+          6 | tberreyk0@adobe.com       | tberreyk0     | 2019-05-25 13:46:06 | Curabitur gravida ni
+        820 | fginnaneoe@answers.com    | fginnaneoe    | 2018-11-16 02:56:52 | Aenean fermentum. Do
+        979 | jpowdrillos@netscape.com  | jpowdrillos   | 2018-08-16 10:00:51 | In hac habitasse pla
 (11 rows)
 ```
