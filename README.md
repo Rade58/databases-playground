@@ -63,7 +63,7 @@ ISTO TAKO, KADA QUERY-UJES BILO KOJI FIELD, TI MOZES PISATI I IME TABLE-A, NA PR
 
 DA SI GORE NAPISAO `users.user_id` IMAO BI ERROR
 
-## ONOME KOJEM DISPLAY-UJES DATA VEROVATNO NIJE STALO DO TOGA DA GLEDA U user_id FIELD, VEROVATNO GA ZANIMA username, ILI fill_name RECORDA, IZ users TABLE-A; `ZATO CEMO DA DEFINISEMO JOIN`
+## ONOME KOJEM DISPLAY-UJES DATA VEROVATNO NIJE STALO DO TOGA DA GLEDA U user_id FIELD, VEROVATNO GA ZANIMA username, ILI fill_name RECORDA, IZ users TABLE-A; `ZATO CEMO DA DEFINISEMO JOIN, RACNIJE, DEFINISACEMO INNER JOIN`
 
 TREBA RECI NEKOLIKO STVARI O TOME STA CU PISATI KADA PISEM PROJECTION, U SLUCAJU REFERENCE, KOJA SE U MOM SLUCAJU ZOVE `user_id`
 
@@ -93,3 +93,29 @@ DAKLE REZULTATU CE BITI DODATI, POTPUNO NOVI FIELD-OVI `email` I `username`
         979 | jpowdrillos@netscape.com  | jpowdrillos   | 2018-08-16 10:00:51 | In hac habitasse pla
 (11 rows)
 ```
+
+DA SMO TRAZILI FIELD, KOJI JE REFERENCA, NE BISMO SMELI BITI AMBIGOUS, ODNONO DVOSMISLENIS
+
+TO ZNACI DA SMO TRAZILI `user_id` FIELD, MORALI SMO GA OVAKO NAPISATI: `users.user_id` ILI `comments.comment_id`, A NE DRUGACIJE, JER DA SAMO NAPISEMO `user_id` BILI BISMO AMBIGOUS I ERROR BI BIO THROWN
+
+- `SELECT users.user_id, LEFT(comment, 20) AS preview FROM comments INNER JOIN users ON comments.user_id = users.user_id WHERE board_id=16;`
+
+```zsh
+ user_id |       preview        
+---------+----------------------
+      56 | Nulla ut erat id mau
+     223 | Aliquam quis turpis 
+     370 | Lorem ipsum dolor si
+     377 | Vestibulum ac est la
+     416 | Maecenas tristique, 
+     426 | Nullam sit amet turp
+     513 | Proin interdum mauri
+     611 | Cras non velit nec n
+     617 | Duis aliquam convall
+     653 | Donec diam neque, ve
+     716 | Nulla ut erat id mau
+     965 | In congue. Etiam jus
+(12 rows)
+```
+
+
