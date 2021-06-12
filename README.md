@@ -188,4 +188,17 @@ A DRUGI NACIN DA SE NE KORISTI `CAST()` FUNKCIJA, JESTE DA SE KORISTI `->>` SIMB
 
 JEDINO STO MI JE GORE NEOBICNO JESTE DA video, poll I image NEMAJU `""` 
 
-DAKLE OVO JE SADA MOZDA DEPRECATED KORISTITI S OBZIROM DA KORISTIM JSONP
+TO JE ZATO JER NISI DOBIO JSON, VEC VALID SQL TYPE
+
+# SADA CEMO DA NAPRAVIMO QUERY U KOJEM CEMO DA SELECT-UJEMO SAMO hight AND with FIELD-OVE IZ RICH CONTENT-A ,ODNONO SAMO STVARI KOJE IMAJU hight AND width
+
+- `SELECT content -> 'dimensions' ->> 'height' AS height, content -> 'dimensions' ->> 'width' AS width FROM rich_content WHERE content -> 'dimensions' IS NOT NULL;`
+
+```zsh
+ height | width 
+--------+-------
+ 1080   | 1920
+ 400    | 1084
+ 237    | 3301
+(3 rows)
+```
