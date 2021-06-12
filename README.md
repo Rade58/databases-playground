@@ -95,3 +95,18 @@ EVO STA SAM DOBIO
  "image"
 (5 rows)
 ```
+
+QUESTION MARKS ZA COLUMN SU ZATO STO NISMO DALI NAME ,MOZEMO TO DA POPRAVIMO SA `AS`
+
+- `SELECT content -> 'type' AS content_type FROM rich_content;`
+
+```zsh
+ content_type 
+--------------
+ "poll"
+ "video"
+ "poll"
+ "image"
+ "image"
+(5 rows)
+```
