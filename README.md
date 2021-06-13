@@ -91,8 +91,46 @@ e4b74dc0d18e   postgres:12                    "docker-entrypoint.s…"   About a
 
 - `docker container retart 3227273a43ea`
 
-## SADA MI VEC MOZEM ODA QUERY-UJEMO KORISCENJEM GRAAPHQL-A 
+## SADA MI VEC MOZEMO DA QUERY-UJEMO KORISCENJEM GRAAPHQL-A 
 
 TOOL, KOJI JE BASED NA GRAPHIQL-U EXPOSED JE NA: <http://localhost:8080>
 
+KLIKNI NA `DATA` TAB
 
+TU MOGU VIDETI LISTED TABLOVE
+
+MOZES DA KLIKNES NA `Track` BUTTON ISPRED NEKOG OD IMENA I VIDECES SVE FIELD-OVE, KOJE MOZE IMATI RECORD TOG TABLE-A
+
+**ALI KADA SI KLIKNUO NA TO , MOZES DA SE VRATIS U TAB `GRAPHIQL` I VIDECES DA CE TAMO BITI DOSTUPNI TYPE-OVI ZA GRAPHQL QUERY-JE, KOJE MOZES OBAVLJATI ZA ONE RECORDE, ONE TABELE, ZA KOJU SI KLIKNUO MALOCAS NA `Track`**
+
+NAPRAVICU JEDAN GRAPGL QUERY
+
+```gql
+{
+  users( where: {user_id: {_eq: 1}}) {
+    email
+    created_on
+   	last_login
+    user_id
+    full_name
+  }
+}
+```
+
+EVO KOJ ISAM DATA DOBIO
+
+```json
+{
+  "data": {
+    "users": [
+      {
+        "email": "dpuckring0@wikimedia.org",
+        "created_on": "2021-06-06T12:54:50.318908",
+        "last_login": null,
+        "user_id": 1,
+        "full_name": "Dicky Puckring"
+      }
+    ]
+  }
+}
+```
