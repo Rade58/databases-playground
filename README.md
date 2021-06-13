@@ -80,3 +80,24 @@ EVO KOJI JE OUTPUT GORNJE KOMANDE
 1 row available after 284 ms, consumed after another 54 ms
 Created 1 relationships, Set 1 properties
 ```
+
+# SADA CEMO DA POPULATE-UJEMMO DATBASE, SA JOS NEKOLIKO RELATION-A
+
+```cypher
+MATCH (ScottVsWorld:Movie) WHERE ScottVsWorld.title = "Scott Pilgrim vs the World"
+CREATE (Anna:Person {name:'Anna Kendrick', born:1985})
+CREATE (Brie:Person {name:'Brie Larson', born:1989})
+CREATE (Aubrey:Person {name:'Aubrey Plaza', born:1984})
+CREATE (Mary:Person {name:'Mary Elizabeth Winstead', born:1984})
+CREATE (Kieran:Person {name:'Kieran Culkin', born:1982})
+CREATE (Chris:Person {name:'Chris Evans', born:1981})
+CREATE (Edgar:Person {name:'Edgar Wright', born:1974})
+CREATE
+(Anna)-[:ACTED_IN {roles:['Stacey Pilgrim']}]->(ScottVsWorld),
+(Brie)-[:ACTED_IN {roles:['Envy Adams']}]->(ScottVsWorld),
+(Aubrey)-[:ACTED_IN {roles:['Julie Powers']}]->(ScottVsWorld),
+(Mary)-[:ACTED_IN {roles:['Ramona Flowers']}]->(ScottVsWorld),
+(Kieran)-[:ACTED_IN {roles:['Wallace Wells']}]->(ScottVsWorld),
+(Chris)-[:ACTED_IN {roles:['Lucas Lee']}]->(ScottVsWorld),
+(Edgar)-[:DIRECTED]->(ScottVsWorld);
+```
