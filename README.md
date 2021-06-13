@@ -10,13 +10,15 @@ ALI NIJE FUNKCIONISALO ONO STO JE HTEO DA PODESI BRIAN HOLT
 
 ZATO SAM ISKOTRISTIO NACIN KOJI JE [OBJASNJEN OVDE](https://hasura.io/docs/latest/graphql/core/deployment/deployment-guides/docker.html#run-hasura-graphql-engine-using-docker)
 
+PRVO KILL-UJ POSTOJECI CONTAINER U KOJEM TI JE POSTGRES INSTANCA
+
 ## UZECU JEDAN DOCKER COMPOSE YAML FILE, KOJEM JE ULOGA DA KREIRA DVA CONTAINERA, U JEDNOM CE BITI POSTGRES, A U DRUGOM HASURA
 
 UGLAVNOM DOWNLOAD-OVAO SAM SLEDECI FILE
 
 - `cat docker-compose.yaml`
 
-```zsh
+```yaml
 version: '3.6'
 services:
   postgres:
@@ -61,7 +63,19 @@ e4b74dc0d18e   postgres:12                    "docker-entrypoint.s…"   About a
 
 ```
 
+SADA CEMO DA UDJEMO U CLI POSTGRES INSTANCE
 
+- `docker exec -it -u postgres databases-playground_postgres_1 psql`
+
+SADA SMO U POSTGRESS CLI
+
+DA NAPRAVIMO `message_boards` DATBASE
+
+- `CREATE DATABASE message_boards;`
+
+DA SE KONEKTUJEMO NA NOVI DATBASE
+
+- `\c message_boards;`
 
 
 
