@@ -77,35 +77,22 @@ DA SE KONEKTUJEMO NA NOVI DATBASE
 
 - `\c message_boards;`
 
+PREKOPIRACEMO [SVE ODAVDE](sample-postgresql.sql), I PAST-OVACEMO U CLI IEXECUTE-OVACEMO TO, KAKO BISMO DOBILI NOVE TABLE-OVE I KAKO BI MNOSTVO RECORDS-A BILO KREIRANO U TIM TABLE-OVIMA
 
+POSTO SMO SVE TO URADILI RESTARTOVACEMO CONTAINER U KOJEM JE HASURA
 
+- `docker ps`
 
+```zsh
+CONTAINER ID   IMAGE                          COMMAND                  CREATED             STATUS          PORTS                                       NAMES
+3227273a43ea   hasura/graphql-engine:v1.3.3   "graphql-engine serve"   15 minutes ago      Up 4 seconds    0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   databases-playground_graphql-engine_1
+e4b74dc0d18e   postgres:12                    "docker-entrypoint.s…"   About an hour ago   Up 15 minutes   5432/tcp                                    databases-playground_postgres_1
+```
 
-AKO SI UGASIO CONTAINER SA INSTANCOM, [PONOVO GA POKRENI, I UDJU U POSTGRES CLI](https://github.com/Rade58/databases-playground/tree/1_0_1_PostgreSQL#postgresql)
+- `docker container retart 3227273a43ea`
 
-[KREIRAJ DATABASE](https://github.com/Rade58/databases-playground/tree/1_0_1_PostgreSQL#mi-cemo-kreitrati-novi-database-koji-cemo-nazvati-message_boards) message_boards
+## SADA MI VEC MOZEM ODA QUERY-UJEMO KORISCENJEM GRAAPHQL-A 
 
-[KONEKTUJ SE NA NJEGA](https://github.com/Rade58/databases-playground/tree/1_0_2_CREATING_TABLES_AND_RECORDS_IN_PostgreSQL)
-
-I [KREIRAJ TABLE-OVE, I POPULATE-UJ IH SA RECORDIMA](sample-postgresql.sql)
-
-SADA MOZEMO DA POKRENEMO CONTAINER U KOJEM JE HASURA
-
-# JA CU DAKLE POKRENUTI CONTAINER SA HASUROM, KOJOJ MORAM OBEZBEDITI KONEKCIJU DO MOG DATBASE-A
-
-SECRET SA KOJI MSAM RUNN-OVAO POSTGRES MORAM I OVDE OBEZBEDITI: TO JE STRING `"schism"`
-
-IMAGE KOJI CE BITI DOWNLOADED I KOJI CE BITI RUNNED JESTE `hasura/graphql-engine:v1.3.3`
-
-- `
-
-docker run -d -p 8080:8080 \
-  -e HASURA_GRAPHQL_DATABASE_URL=postgresql://postgres:schism@host.docker.internal:5432/message_boards \
-  -e HASURA_GRAPHQL_ENABLE_CONSOLE=true --name=my-hasura --rm \
-  hasura/graphql-engine:v1.3.2
-
-`
-
-NAKON OVOGA GRAPHQL PLAYGROUND BICE EXPOSED NA: <http://localhost:8080>
+TOOL, KOJI JE BASED NA GRAPHIQL-U EXPOSED JE NA: <http://localhost:8080>
 
 
