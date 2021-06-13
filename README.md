@@ -1,26 +1,57 @@
-# Neo4j
+# ADDING NODES AND RELATIONSHIPS IN Neo4j
 
-<https://neo4j.com/>
+KREIRACEMO NAS PRVI NODE
 
-POKRENUCEMO INSTANCU OVOG DATBASE-A INSIDE A DOCKER CONTAINER
+`p` REPREZENTUJE VARIJABLU, A `Person` JE LABEL ZA OVAJ PARTICULAR NODE, A U `{}` SU PROPERTIJI ILI ATRIBUTI, ZA PARTICULAR Person NODE
 
-- `docker run -dit --rm --name=my-neo4j -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH=none neo4j:4.1.3`
-
-7474 JE PORT ZA BROWSER INTERFACE, A 7687 JE PORT ZA READING I WRITING TO DATBASE
-
-NE KORISTIMO AUTH JER SE SAMO IGRAM OSA DATBASE-OM NA NASEM LOKALNOM KOMPJUTERU
-
-- `docker ps`
+- `CREATE (p: Person {name: "Michael Cera", born: 1988});`
 
 ```zsh
-CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS              PORTS                                                                                            NAMES
-4a3348638e95   neo4j:4.1.3   "/sbin/tini -g -- /d…"   About a minute ago   Up About a minute   0.0.0.0:7474->7474/tcp, :::7474->7474/tcp, 7473/tcp, 0.0.0.0:7687->7687/tcp, :::7687->7687/tcp   my-neo4j
+Added 1 nodes, Set 2 properties, Added 1 labels
 ```
 
-DA SADA UDJEMO U CLI DATBASE-A, ODNOSNO U OVOM SLUCAJU MI KORISTIME NESTO STO SE ZOVE cypher-shell
+SADA CEMO DA UERY-UJEMO ZA PARTICULAR NODE WE CREATED
 
-- `docker exec -it my-neo4j cypher-shell`
+- `MATCH (p {name: "Michael Cera"}) RETURN p;`
 
-QUERY LANGUAGE FOR Neo4j SE ZOVE `CYPHER LANGUAGE`
+```zsh
++----------------------------------------------+
+| p                                            |
++----------------------------------------------+
+| (:Person {name: "Michael Cera", born: 1988}) |
++----------------------------------------------+
 
-NE KORISTI SE NIGDE NEGO SAM OOZA Neo4j
+1 row available after 121 ms, consumed after another 6 ms
+```
+
+KREIRACEMO JO JEDAN NODE
+
+- `CREATE (m: Movie {title: "Scott Pilgrim vs the World", release: 2010, tagline: "An epic of epic epicness."}) RETURN m;`
+
+```zsh
++-----------------------------------------------------------------------------------------------------+
+| m                                                                                                   |
++-----------------------------------------------------------------------------------------------------+
+| (:Movie {tagline: "An epic of epic epicness.", title: "Scott Pilgrim vs the World", release: 2010}) |
++-----------------------------------------------------------------------------------------------------+
+
+1 row available after 98 ms, consumed after another 21 ms
+Added 1 nodes, Set 3 properties, Added 1 labels
+```
+
+SADA MOZEMO DA UZMEMO SVE NODE-OVE (KARAKTERE )
+
+- `MATCH (a) RETURN a;`
+
+```zsh
++-----------------------------------------------------------------------------------------------------+
+| a                                                                                                   |
++-----------------------------------------------------------------------------------------------------+
+| (:Person {name: "Michael Cera", born: 1988})                                                        |
+| (:Movie {tagline: "An epic of epic epicness.", title: "Scott Pilgrim vs the World", release: 2010}) |
++-----------------------------------------------------------------------------------------------------+
+
+2 rows available after 74 ms, consumed after another 5 ms
+```
+
+
