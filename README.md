@@ -75,11 +75,7 @@ function init() {
       comments: commentResponse.rows
     }).end()
 
-
     client.release()
-
-
-
 
   })
 
@@ -99,4 +95,4 @@ init();
 
 IDI NA <http://localhost:3000> I POKUSAJ DA UNESES NEKI board_id
 
-SVE FUNKCIONISE
+JOIN IZ PRVOG QUERY-JA NE FUNKCIONISE, A NIJE MI NI JASNO KAKO BI FUNKCIONISAO, KADA VIDIM DA comments RECORD NEMA NIKAKVU REFERENCU DO TABLE-A rich_content
