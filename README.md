@@ -58,7 +58,7 @@ SADA MOZEMO DA UZMEMO SVE NODE-OVE (STAVIO SAM a, OVO IZGLEDA NIJE BITNO STA SE 
 
 MEDJUTIM, MI U TOJ KLAUZULI MORAMO I QUERY-OVATI ZA POMENUTIM NODE-OVIMA
 
-- `MATCH (person: Person), (movie: M) WHERE person.name = "Michael Cera" AND movie.title = "Scott Pilgrim vs the World" CREATE (person)-[relationship: ACTED_IN {roles: ["Scott Pilgrim"]}]->(movie) RETURN relationship;`
+- `MATCH (person: Person), (movie: Movie) WHERE person.name = "Michael Cera" AND movie.title = "Scott Pilgrim vs the World" CREATE (person)-[relationship: ACTED_IN {roles: ["Scott Pilgrim"]}]->(movie) RETURN relationship;`
 
 releationship PREDSTAVLJA VARIJABLU, TI SI TO MOGAO NZVATI KAKO GOD
 
@@ -67,3 +67,16 @@ releationship PREDSTAVLJA VARIJABLU, TI SI TO MOGAO NZVATI KAKO GOD
 A VIDEO SI I DA SAM RELATIONSHIP MOZE IMATI PROPERTIES AT ITS OWN ,MI SMO DODALI SAMO roles, IAKO SMO MOGLI IMATI KOLIKO GOD HOCEMO
 
 VIDIS U GORNJOJ SINTKSI KAKO SAM KORISTIO `-` I `->`, ODNOSNO NA KOJIM MESTIMA, ILI STRNAMA
+
+EVO KOJI JE OUTPUT GORNJE KOMANDE
+
+```zsh
++----------------------------------------+
+| relationship                           |
++----------------------------------------+
+| [:ACTED_IN {roles: ["Scott Pilgrim"]}] |
++----------------------------------------+
+
+1 row available after 284 ms, consumed after another 54 ms
+Created 1 relationships, Set 1 properties
+```
