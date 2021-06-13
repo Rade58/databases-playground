@@ -24,7 +24,7 @@ MOZES OPET DA RUN-UJES CONTAINER, S POSTGRES INSTANCOM, I DA NAPRAVIS DATBASE I 
 
 ## EVO KAKO CE NA KRAJU IZGLEDATI SERVER
 
-- `cat `
+- `cat postgres/server.ts`
 
 ```ts
 import express from 'express'
@@ -97,3 +97,6 @@ init();
 
 - `yarn start`
 
+IDI NA <http://localhost:3000> I POKUSAJ DA UNESES NEKI board_id
+
+SVE FUNKCIONISE
