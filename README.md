@@ -83,6 +83,10 @@ Created 1 relationships, Set 1 properties
 
 # SADA CEMO DA POPULATE-UJEMMO DATBASE, SA JOS NEKOLIKO RELATION-A
 
+PRVO CEMO KREIRATI 7 NODE-OVA
+
+PA CEMO ONDA DA NAPRAVIMO RELATIONSHIPS
+
 ```cypher
 MATCH (ScottVsWorld:Movie) WHERE ScottVsWorld.title = "Scott Pilgrim vs the World"
 CREATE (Anna:Person {name:'Anna Kendrick', born:1985})
@@ -101,3 +105,5 @@ CREATE
 (Chris)-[:ACTED_IN {roles:['Lucas Lee']}]->(ScottVsWorld),
 (Edgar)-[:DIRECTED]->(ScottVsWorld);
 ```
+
+
