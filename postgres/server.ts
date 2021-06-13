@@ -34,3 +34,5 @@ function init() {
 
   console.log(`running on http://localhost:${PORT}`)
 }
+
+init();
