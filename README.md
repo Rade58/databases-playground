@@ -198,5 +198,10 @@ NA OVOJ STRANICI IMAS MNOG LINKOVE KOJI TE VODE DO MESTA GDE SU TI OBJASNJENE OS
 
 <https://btholt.github.io/complete-intro-to-databases/redis-data-types>
 
+# AKO HOCES NESTO VISE DA SAZNAS O `HyperLogLog` I `Streams` POGLEDAJ SLEDECE LINKOVE
+
+<https://redis.io/topics/data-types-intro#hyperloglogs>
+
+<https://redis.io/topics/streams-intro>
 
 
