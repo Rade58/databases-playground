@@ -113,3 +113,5 @@ AKO NE POSTOJI, DOBIJA SE `0`
 127.0.0.1:6379> EXISTS score:clipers
 (integer) 0
 ```
+
+## ALI U 96% SLUCJEVA SE KORISTI `SET` I `GET`
