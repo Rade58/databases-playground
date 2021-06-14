@@ -68,3 +68,13 @@ OK
 127.0.0.1:6379> MSET score:nugets 69 score:clipers 58
 OK
 ```
+
+EVO DA VIDIM DA LI SAM USPESNO SET-OVAO POMENUTE STVARI
+
+```zsh
+127.0.0.1:6379> GET score:nugets
+"69"
+127.0.0.1:6379> GET score:clipers
+"58"
+```
+
