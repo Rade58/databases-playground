@@ -122,3 +122,22 @@ PA TO BI URADIO OVAKO
 
 7 rows available after 270 ms, consumed after another 9 ms
 ```
+
+## SADA CEMO, FOR THE FUN DA QUERY-UJEMO NA SVE KOJI SU IGRALI ULOGU U FILMU SA Brie Larson, A KOJI SU BILI MLADJI OD NJEGA
+
+- `MATCH (p: Person)-[:ACTED_IN]->(Movie)<-[:ACTED_IN]-(q: Person) WHERE p.name = "Brie Larson" AND q.born < p.born RETURN q.name;`
+
+```zsh
++---------------------------+
+| q.name                    |
++---------------------------+
+| "Chris Evans"             |
+| "Kieran Culkin"           |
+| "Mary Elizabeth Winstead" |
+| "Aubrey Plaza"            |
+| "Anna Kendrick"           |
+| "Michael Cera"            |
++---------------------------+
+
+6 rows available after 57 ms, consumed after another 8 ms
+```
