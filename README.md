@@ -15,3 +15,5 @@ I VIDECES SJAJNU VIZUALIZACIJU
 ![vis nodes edgges](images/screenshot-9c1a442a.jpg)
 
 A LEVO MOZES SVE PRIKAZATI U VIDU TABELE, ILI U VIDU TEXT-A ILI CODE-A
+
+POSTOJI JOS STVARI O KOJIM [MOZES OVDE SAZNATI](https://btholt.github.io/complete-intro-to-databases/neo4j-browser)
