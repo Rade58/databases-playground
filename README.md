@@ -1,153 +1,17 @@
-# QUERYING WITH MATCH AND CONSTRAINT
+# Neo4j BROWSER
 
-SADA CEMO NAPRAVITI QUERY ZA SVIM RELATIONSHIP-OVIMA, KOJE SMO NAPRAVILI U PROSLOM BRANCH-U, PAST-UJUCI IN ONIH NEKOLIKO KLUZULA KOJIMA SMO KREIRALI RELATIONSHIPS
+IDI NA <http://localhost:7474>
 
-- `MATCH (p: Person)-[r: ACTED_IN]->(m: Movie) RETURN r;`
+POSTO NISMO DEFINISALI NIKAKAV AUTH DA BUDE REQUIRED, MOZES KLIKNUTI NA `Connect` DUGME
 
-```zsh
-+-----------------------------------------+
-| r                                       |
-+-----------------------------------------+
-| [:ACTED_IN {roles: ["Scott Pilgrim"]}]  |
-| [:ACTED_IN {roles: ["Scott Pilgrim"]}]  |
-| [:ACTED_IN {roles: ["Stacey Pilgrim"]}] |
-| [:ACTED_IN {roles: ["Envy Adams"]}]     |
-| [:ACTED_IN {roles: ["Julie Powers"]}]   |
-| [:ACTED_IN {roles: ["Ramona Flowers"]}] |
-| [:ACTED_IN {roles: ["Wallace Wells"]}]  |
-| [:ACTED_IN {roles: ["Lucas Lee"]}]      |
-+-----------------------------------------+
+U GORNJEM DELU GDE VIDIS Neo4j$ MOZES PISATI QUERY-JE
 
-8 rows available after 332 ms, consumed after another 32 ms
-```
+NAPISAO SAM:
 
-DAKLI MOGLI SMO DA QUERY-UJEMO ZA EDGES, ODNOSNO RELATIONSHIPS
+- `MATCH (n) RETURN n;`
 
-SADA CEMO DODATI I WHERE KLAUZULU, KAKO BISMO QUERY-OVAL U ODNOSU NA RELATIONSHIP
+I VIDECES SJAJNU VIZUALIZACIJU
 
-- `MATCH (p: Person)-[r: ACTED_IN]->(m: Movie) WHERE p.name = 'Brie Larson' RETURN p;`
+![vis nodes edgges](images/screenshot-9c1a442a.jpg)
 
-```zsh
-+---------------------------------------------+
-| p                                           |
-+---------------------------------------------+
-| (:Person {name: "Brie Larson", born: 1989}) |
-+---------------------------------------------+
-
-1 row available after 174 ms, consumed after another 7 ms
-```
-
-MI MO MOGLI RETURN-OVATI I m VARIJABLU, ILI r VARIJABLU
-
-- `MATCH (p: Person)-[r: ACTED_IN]->(m: Movie) WHERE p.name = 'Brie Larson' RETURN r;`
-
-```zsh
-+-------------------------------------+
-| r                                   |
-+-------------------------------------+
-| [:ACTED_IN {roles: ["Envy Adams"]}] |
-+-------------------------------------+
-
-1 row available after 145 ms, consumed after another 5 ms
-```
-
-- `MATCH (p: Person)-[r: ACTED_IN]->(m: Movie) WHERE p.name = 'Brie Larson' RETURN m;`
-
-```zsh
-+-----------------------------------------------------------------------------------------------------+
-| m                                                                                                   |
-+-----------------------------------------------------------------------------------------------------+
-| (:Movie {tagline: "An epic of epic epicness.", title: "Scott Pilgrim vs the World", release: 2010}) |
-+-----------------------------------------------------------------------------------------------------+
-
-1 row available after 4 ms, consumed after another 12 ms
-```
-
-# MOZEMO DA QUERY-UJEMO ZA NODE-OVE, KOJI SU ASOCIATED WITH A RELATINSHIP, ALI I DA OMMIT-UJEMO NODE-OVE FROM RESULT
-
-MISLIM DA CE TI BITNI JASNIJE KADA VIDIS KAKO SAM UPOTREBIO VARIJABLE
-
-***
-
-digresija:
-
-ISTO TAKO, JASNO CE TI BITI DA TI NE MORAS SVE DA ASSIGN-UJES TO VARIABLES, JER ONO STO NECES UPOTREBLJAVATI U KLAUZULI, VEC SAMO REFERENCIRATI, NJEMU I NE TREBA VARIJABLA, KAO STO SI URADIO ZA Movie, ALI OVDE NISI RELATIONSHIP TAKODJE ASSIGN-OVAO TO THE VARIABLE
-
-ISTO TAKO VIDIS DA SU PORED `->` DOZVOLJENE I STRELICE `<-`
-
-***
-
-A ZNAKOVI `<>` PREDSTAVLJAJU NEJEDNAKOST
-
-- `MATCH (p:Person)-[:ACTED_IN]->(Movie)<-[:ACTED_IN]-(q: Person) WHERE p.name = "Chris Evans" AND q.name <> "Chris Evans" RETURN q.name;`
-
-DOBICU SVE PERSONS KOJI NISU "Chris Evans"
-
-```zsh
-+---------------------------+
-| q.name                    |
-+---------------------------+
-| "Kieran Culkin"           |
-| "Mary Elizabeth Winstead" |
-| "Aubrey Plaza"            |
-| "Brie Larson"             |
-| "Anna Kendrick"           |
-| "Michael Cera"            |
-| "Michael Cera"            |
-+---------------------------+
-
-7 rows available after 359 ms, consumed after another 16 ms
-```
-
-MI SMO USTVARI UZELI SADA SVE ACTORE, KOJI SU U FILMU IGRALI ROLES PORED CHRIS EVANS-A
-
-SADA ZELIM DA LIST-UJEM KOJE SU TO ROLES SVI OVO LJUDI IGRALI
-
-PA TO BI URADIO OVAKO
-
-- `MATCH (p:Person)-[:ACTED_IN]->(Movie)<-[r:ACTED_IN]-(q: Person) WHERE p.name = "Chris Evans" AND q.name <> "Chris Evans" RETURN r.roles;`
-
-```zsh
-+--------------------+
-| r.roles            |
-+--------------------+
-| ["Wallace Wells"]  |
-| ["Ramona Flowers"] |
-| ["Julie Powers"]   |
-| ["Envy Adams"]     |
-| ["Stacey Pilgrim"] |
-| ["Scott Pilgrim"]  |
-| ["Scott Pilgrim"]  |
-+--------------------+
-
-7 rows available after 270 ms, consumed after another 9 ms
-```
-
-## SADA CEMO, FOR THE FUN DA QUERY-UJEMO NA SVE KOJI SU IGRALI ULOGU U FILMU SA Brie Larson, A KOJI SU BILI MLADJI OD NJEGA
-
-- `MATCH (p: Person)-[:ACTED_IN]->(Movie)<-[:ACTED_IN]-(q: Person) WHERE p.name = "Brie Larson" AND q.born < p.born RETURN q.name;`
-
-```zsh
-+---------------------------+
-| q.name                    |
-+---------------------------+
-| "Chris Evans"             |
-| "Kieran Culkin"           |
-| "Mary Elizabeth Winstead" |
-| "Aubrey Plaza"            |
-| "Anna Kendrick"           |
-| "Michael Cera"            |
-+---------------------------+
-
-6 rows available after 57 ms, consumed after another 8 ms
-```
-
-# KAKO DA UCINIS DA NEKI PROPERTI U NODE-U MORA DA BUDE UNIQUE
-
-PISES SLEDECE
-
-- `CREATE CONSTRAINT ON (a: Movie) ASSERT a.title IS UNIQUE;`
-
-AKO SADA POKUSAS DA KRIRAS NOVI Movie NODE, KOJI BI IMAO ISTI title KOJI VEC IMAMO ZA DRUGI NODE, A TO JE title SA VREDNOSCU "Scott Pilgrim vs the World", ERROR BI BIO THROWN
-
-TI OVO MOZES URADITI, JER GRAPH DATBASES TAKODJE IMAJU INDEXES
+A LEVO MOZES SVE PRIKAZATI U VIDU TABELE, ILI U VIDU TEXT-A ILI CODE-A
