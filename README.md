@@ -63,3 +63,39 @@ MI MO MOGLI RETURN-OVATI I m VARIJABLU, ILI r VARIJABLU
 1 row available after 4 ms, consumed after another 12 ms
 ```
 
+# MOZEMO DA QUERY-UJEMO ZA NODE-OVE, KOJI SU ASOCIATED WITH A RELATINSHIP, ALI I DA OMMIT-UJEMO NODE-OVE FROM RESULT
+
+MISLIM DA CE TI BITNI JASNIJE KADA VIDIS KAKO SAM UPOTREBIO VARIJABLE
+
+***
+
+digresija:
+
+ISTO TAKO, JASNO CE TI BITI DA TI NE MORAS SVE DA ASSIGN-UJES TO VARIABLES, JER ONO STO NECES UPOTREBLJAVATI U KLAUZULI, VEC SAMO REFERENCIRATI, NJEMU I NE TREBA VARIJABLA, KAO STO SI URADIO ZA Movie, ALI OVDE NISI RELATIONSHIP TAKODJE ASSIGN-OVAO TO THE VARIABLE
+
+ISTO TAKO VIDIS DA SU PORED `->` DOZVOLJENE I STRELICE `<-`
+
+***
+
+A ZNAKOVI `<>` PREDSTAVLJAJU NEJEDNAKOST
+
+
+- `MATCH (p:Person)-[:ACTED_IN]->(Movie)<-[:ACTED_IN]-(q: Person) WHERE p.name = "Chris Evans" AND q.name <> "Chris Evans" RETURN q.name;`
+
+DOBICU SVE PERSONS KOJI NISU "Chris Evans"
+
+```zsh
++---------------------------+
+| q.name                    |
++---------------------------+
+| "Kieran Culkin"           |
+| "Mary Elizabeth Winstead" |
+| "Aubrey Plaza"            |
+| "Brie Larson"             |
+| "Anna Kendrick"           |
+| "Michael Cera"            |
+| "Michael Cera"            |
++---------------------------+
+
+7 rows available after 359 ms, consumed after another 16 ms
+```
