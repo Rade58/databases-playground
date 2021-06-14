@@ -90,3 +90,16 @@ SADA LISTA VISE NECE IMATI, GORNJI ITEM
 2) "Nahrani vidru"
 3) "Slozi knjige"
 ```
+
+## DA OBRAIN-UJEMO PRVOG MEMBER-A, ALI DA GA ISTOVREMENO UKLONIMO IZ LISTE, KORISTIMO `LPOP`
+
+```zsh
+127.0.0.1:6379> LPOP notifications:rade
+"Izbaci smece"
+127.0.0.1:6379> LRANGE notifications:rade 0 -1
+1) "Nahrani vidru"
+2) "Slozi knjige"
+```
+
+
+
