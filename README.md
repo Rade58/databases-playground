@@ -25,4 +25,23 @@ UMESTO SETING-A MI MOZEMO KORISTITI `INCR` CIME MOZEMO INCREMENTIRATI VREDNOST
 "3"
 ```
 
+## MOZES KORISTITI I `DECR`, ODNONO DECREMENT
+
+```zsh
+127.0.0.1:6379> DECR visits
+(integer) 2
+127.0.0.1:6379> DECR visits
+(integer) 1
+127.0.0.1:6379> DECR visits
+(integer) 0
+127.0.0.1:6379> DECR visits
+(integer) -1
+127.0.0.1:6379> DECR visits
+(integer) -2
+127.0.0.1:6379> DECR visits
+(integer) -3
+127.0.0.1:6379> DECR visits
+(integer) -4
+```
+
 
