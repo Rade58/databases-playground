@@ -1,13 +1,21 @@
-# KEY-VALUE STORE
+# Redis
 
-DRUGI DATBASE-OVI KOJIMA SAM SE BAVIO SU NAMENJENI DA BUDU ORIGINAL SOURCES OF TRUTH
+STANDS FOR: `"REMOTE DICTIONARY STORE"`
 
-KEY-VALUE STORES SU ENTIRELY DIFFERENT BEASTS; **ONI SU USALLY COMPANIONS TO OTHER DATBASES**
+## POKRENUCEMO CONTAINER SA REDISOM
 
->> I like to think of a key-value store as a giant JavaScript object. You can `store['my-key']` = 5 and then later you can come back later and ask for `store['key']` and get 5 back. Honestly that's 90% of the use right there. You store a value under a key and then later you can ask for that key back. There are a few other operations you can too and we'll get there, but that's the general idea.
+- `docker run -dit --rm --name=my-redis -p 6379:6379 redis:6.0.8`
 
-## USE CASES
+## PA CEMO KORISTITI REDIS CLI
 
-CACHING ZA VEOMA EXPENSIVE SQL QUERY, ILI BILO KOJI DRUGI QUERY KOJI JE EXPENSSIVE
+- `docker exec -it my-redis redis-cli`
 
-DA VIDIS OSTALE [USE CASES, PROCITAJ OVO](https://btholt.github.io/complete-intro-to-databases/key-value-store#use-cases)
+## KORISTICEMO SADA REDIS SIMPLE WAY POSIBLE
+
+PODESICEMO KEY-VALUE
+
+```redis
+127.0.0.1:6379> SET name "Rade Bajic"
+OK
+127.0.0.1:6379> 
+```
