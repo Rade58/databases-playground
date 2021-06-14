@@ -9,3 +9,49 @@ INSTALIRAM [SLEDECE](https://www.npmjs.com/package/redis) (OVO JE COMUNITY DRIVE
 - `cd redis`
 
 - `yarn add redis@3.0.2 @types/redis`
+
+- `code redis/server.ts`
+
+```ts
+import {promisify} from 'util'
+import express from 'express'
+import {createClient} from 'redis'
+
+const client = createClient()
+
+const rIncr = promisify(client.incr).bind(client)
+
+function init(){
+  const app = express()
+
+  app.get('/pageview', async (req, res) => {
+
+    // pageviews CE BITI KEY FROM REDIS
+    const views = await rIncr("pageviews")
+
+    // DAKLE RADICE SE ONAJ INCREMENTING, O KOJEM SMO UCILI
+
+    res.json({status: "ok", views}).end()
+  })
+
+  const PORT = 3000;
+
+  app.use(express.static('./static'))
+  app.listen(PORT, () => {
+    console.log(`running on http://localhost:${PORT}`)
+  })
+
+}
+
+init()
+```
+
+U OVOM SLUCAJU SVAKI PUT KADA SE RELOAD-UJE PAGE BICE INCREMENTED KER `pageviews`
+
+A TO CES MOCI DA VIDIS NA PAGE-U, JER SMO U [HTML-U](redis/static/index.html) NAPRAVILI FETCHING I INSERTING REULTATA INTO h1 ELEMENT
+
+- `cd redis`
+
+- `yarn start`
+
+

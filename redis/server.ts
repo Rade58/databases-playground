@@ -21,8 +21,8 @@ function init(){
   const PORT = 3000;
 
   app.use(express.static('./static'))
-  app.listen(() => {
-    console.log(`application on http://localhost:${PORT}`)
+  app.listen(PORT, () => {
+    console.log(`running on http://localhost:${PORT}`)
   })
 
 }
