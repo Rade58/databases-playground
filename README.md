@@ -14,8 +14,16 @@ STANDS FOR: `"REMOTE DICTIONARY STORE"`
 
 PODESICEMO KEY-VALUE
 
-```redis
+```zsh
 127.0.0.1:6379> SET name "Rade Bajic"
 OK
+127.0.0.1:6379> 
+```
+
+UZECEMO name
+
+```SH
+127.0.0.1:6379> GET name
+"Rade Bajic"
 127.0.0.1:6379> 
 ```
