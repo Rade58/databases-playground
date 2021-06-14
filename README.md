@@ -101,3 +101,15 @@ AKO NE POSTOJI, DOBIJA SE `0`
 127.0.0.1:6379> EXISTS something
 (integer) 0
 ```
+
+# DELETING JE MOGUC SA `DEL`
+
+```zsh
+127.0.0.1:6379> DEL score:clipers
+(integer) 1
+```
+
+```zsh
+127.0.0.1:6379> EXISTS score:clipers
+(integer) 0
+```
