@@ -115,3 +115,13 @@ A ZA OBTAINING PROPERTIJA KORISTIS `HMGET`
 127.0.0.1:6379> HMGET movies title
 1) "Sex and Videotapes"
 ```
+
+ZA UZIMANJE CELOG OBJEKTA KORISTIS `HGETALL`
+
+```zsh
+127.0.0.1:6379> HGETALL movies
+1) "title"
+2) "Sex and Videotapes"
+3) "gendre"
+4) "non comedy"
+```
