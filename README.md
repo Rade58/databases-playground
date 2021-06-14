@@ -64,3 +64,7 @@ OK
 
 # MOZEMO PRAVITI MULTIPLE SET-OVA AT ONECE, KORISCENJEM `MSET`
 
+```zsh
+127.0.0.1:6379> MSET score:nugets 69 score:clipers 58
+OK
+```
