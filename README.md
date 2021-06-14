@@ -27,3 +27,5 @@ UZECEMO name
 "Rade Bajic"
 127.0.0.1:6379> 
 ```
+
+I OVO JE 90% HOW YOU USE REDIS
