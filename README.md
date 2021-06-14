@@ -20,6 +20,9 @@ import {createClient} from 'redis'
 const client = createClient()
 
 const rIncr = promisify(client.incr).bind(client)
+// DA ZI ZELEO DA KORISTIS NA PRIMER SET ILI GET
+const rGet = promisify(client.get).bind(client)
+// NAMA GET I SET NE TREBAJU SADA
 
 function init(){
   const app = express()
