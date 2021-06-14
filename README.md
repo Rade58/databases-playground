@@ -79,7 +79,6 @@ ISTO TAKO VIDIS DA SU PORED `->` DOZVOLJENE I STRELICE `<-`
 
 A ZNAKOVI `<>` PREDSTAVLJAJU NEJEDNAKOST
 
-
 - `MATCH (p:Person)-[:ACTED_IN]->(Movie)<-[:ACTED_IN]-(q: Person) WHERE p.name = "Chris Evans" AND q.name <> "Chris Evans" RETURN q.name;`
 
 DOBICU SVE PERSONS KOJI NISU "Chris Evans"
@@ -98,4 +97,28 @@ DOBICU SVE PERSONS KOJI NISU "Chris Evans"
 +---------------------------+
 
 7 rows available after 359 ms, consumed after another 16 ms
+```
+
+MI SMO USTVARI UZELI SADA SVE ACTORE, KOJI SU U FILMU IGRALI ROLES PORED CHRIS EVANS-A
+
+SADA ZELIM DA LIST-UJEM KOJE SU TO ROLES SVI OVO LJUDI IGRALI
+
+PA TO BI URADIO OVAKO
+
+- `MATCH (p:Person)-[:ACTED_IN]->(Movie)<-[r:ACTED_IN]-(q: Person) WHERE p.name = "Chris Evans" AND q.name <> "Chris Evans" RETURN r.roles;`
+
+```zsh
++--------------------+
+| r.roles            |
++--------------------+
+| ["Wallace Wells"]  |
+| ["Ramona Flowers"] |
+| ["Julie Powers"]   |
+| ["Envy Adams"]     |
+| ["Stacey Pilgrim"] |
+| ["Scott Pilgrim"]  |
+| ["Scott Pilgrim"]  |
++--------------------+
+
+7 rows available after 270 ms, consumed after another 9 ms
 ```
