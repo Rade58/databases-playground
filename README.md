@@ -1,2 +1,29 @@
 # REDIS COMMAND OPTIONS
 
+`XX` I `NX`
+
+`XX` TI NECE DOZVOLITI DA PODESIS NESTO STO POSTOJI
+
+```zsh
+127.0.0.1:6379> EXISTS user:mike:name
+(integer) 0
+127.0.0.1:6379> SET user:mike:name "Mike Mickson" XX
+(nil)
+127.0.0.1:6379> EXISTS user:mike:name
+(integer) 0
+```
+
+KAO STO VIDIS STVAR NI RANIJE NIJE POSTOJALA, POKUSAO SAM DA JE PODESIM, A KORISTIO SAM `XX`, I SPRECEN JE
+
+`NX` TI NECE DOZVOLITI DA NESTO RE SET-UJES
+
+```zsh
+127.0.0.1:6379> SET locations:town Denver
+OK
+127.0.0.1:6379> SET locations:town Atlanta NX
+(nil)
+127.0.0.1:6379> GET locations:town
+"Denver"
+```
+
+KAO STO VIDIS GORE, PRVO SAM POESIO `locations:town`, POKUSAO SAM TO DA PROMENIM ALI SAM STAVIO I `NX`, I NIJE MI BIO DOZVOLJEN RESETING
