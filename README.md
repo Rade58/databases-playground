@@ -57,4 +57,5 @@ A TO CES MOCI DA VIDIS NA PAGE-U, JER SMO U [HTML-U](redis/static/index.html) NA
 
 - `yarn start`
 
+# REDIS IN COMBINATION WITH POSTGRES
 
