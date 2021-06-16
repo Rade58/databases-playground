@@ -175,3 +175,5 @@ init()
 OVO MOZES I TESTIRATI
 
 **ALI MORAS MISLITI O [TUNDERING HERD PROBLEMU](https://github.com/Rade58/databases-playground/tree/5_0_4_Thundering_herd_problem)**
+
+AKO IMPLEMENTIRAS BLACK FRIDAY FLASH SALE, MOZES DOCI U PROBLEM
